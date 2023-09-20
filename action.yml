@@ -1,0 +1,24 @@
+name: "Connect SSM"
+description: "Github Action for connect to a remote host through aws ssm session."
+
+inputs:
+  target-instance-id:
+    description: "target"
+    required: true
+  remote-host:
+    description: "remoteHost"
+    required: true
+  remote-port:
+    description: "remotePort"
+    required: true
+  local-port:
+    description: "localPort"
+    required: true
+  aws-region:
+    description: "region"
+    required: true
+
+runs:
+  using: "node16"
+  main: "vercel/main/index.js"
+  post: "vercel/cleanup/index.js"
