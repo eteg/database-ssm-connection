@@ -15,7 +15,7 @@ inputs:
     description: "Remote server port."
     required: true
   local-port:
-    description: "localLocal port on the client where traffic should be redirected to."
+    description: "Local port on the client where traffic should be redirected to."
     required: true
 
 runs:
