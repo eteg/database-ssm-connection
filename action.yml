@@ -10,7 +10,7 @@ inputs:
     required: true
   aws-profile:
     description: "AWS Profile. If not provided, the default user will be used."
-    required: true
+    required: false
     default: ""
   remote-host:
     description: "Remote server host."
