@@ -8,6 +8,10 @@ inputs:
   aws-region:
     description: "AWS Region which instance is located."
     required: true
+  aws-profile:
+    description: "AWS Profile. If not provided, the default user will be used."
+    required: true
+    default: ""
   remote-host:
     description: "Remote server host."
     required: true

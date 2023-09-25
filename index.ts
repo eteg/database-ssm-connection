@@ -11,6 +11,7 @@ const main = async () => {
   const remotePort = core.getInput('remote-port', { required: true });
   const localPort = core.getInput('local-port', { required: true });
   const awsRegion = core.getInput('aws-region', { required: true });
+  const awsProfile = core.getInput('aws-profile', { required: false });
 
   const { response, input } = await ssm.connect(
     targetInstanceId,
@@ -21,7 +22,6 @@ const main = async () => {
 
   const jsonResponse = JSON.stringify(response);
   const commandType = 'StartSession';
-  const profile = '';
   const jsonInput = JSON.stringify(input);
   const ssmEndpoint = `https://ssm.${awsRegion}.amazonaws.com`;
 
@@ -29,7 +29,7 @@ const main = async () => {
     jsonResponse,
     awsRegion,
     commandType,
-    profile,
+    awsProfile,
     jsonInput,
     ssmEndpoint,
   ];

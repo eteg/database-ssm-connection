@@ -14,8 +14,8 @@ export default class SSMConnection {
   async connect(
     target: string,
     dbHost: string,
-    dbPort: string | number,
-    localPort: string | number
+    dbPort: string,
+    localPort: string
   ) {
     const input = {
       Target: target,
