@@ -1,0 +1,22 @@
+{
+  "name": "ssm-connect",
+  "version": "1.0.0",
+  "description": "Github Action for connect to a remote host through aws ssm session.",
+  "main": "index.ts",
+  "repository": "git@github.com:eteg/ssm-connect.git",
+  "author": "ETEG",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && ncc build dist/index.js -o vercel/main && ncc build dist/cleanup.js -o vercel/cleanup"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@aws-sdk/client-ssm": "^3.409.0",
+    "@vercel/ncc": "^0.38.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "typescript": "^5.2.2"
+  }
+}
