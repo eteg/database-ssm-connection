@@ -44001,9 +44001,9 @@ class SSMConnection {
                 Target: target,
                 DocumentName: 'AWS-StartPortForwardingSessionToRemoteHost',
                 Parameters: {
-                    host: [`${dbHost}`],
-                    portNumber: [`${dbPort}`],
-                    localPortNumber: [`${localPort}`],
+                    host: [dbHost],
+                    portNumber: [dbPort],
+                    localPortNumber: [localPort],
                 },
             };
             const command = new dist_cjs.StartSessionCommand(input);

@@ -44003,9 +44003,9 @@ class SSMConnection {
                 Target: target,
                 DocumentName: 'AWS-StartPortForwardingSessionToRemoteHost',
                 Parameters: {
-                    host: [`${dbHost}`],
-                    portNumber: [`${dbPort}`],
-                    localPortNumber: [`${localPort}`],
+                    host: [dbHost],
+                    portNumber: [dbPort],
+                    localPortNumber: [localPort],
                 },
             };
             const command = new dist_cjs.StartSessionCommand(input);
@@ -44042,17 +44042,17 @@ const main = () => dist_awaiter(void 0, void 0, void 0, function* () {
     const remotePort = core.getInput('remote-port', { required: true });
     const localPort = core.getInput('local-port', { required: true });
     const awsRegion = core.getInput('aws-region', { required: true });
+    const awsProfile = core.getInput('aws-profile', { required: false });
     const { response, input } = yield ssm.connect(targetInstanceId, remoteHost, remotePort, localPort);
     const jsonResponse = JSON.stringify(response);
     const commandType = 'StartSession';
-    const profile = '';
     const jsonInput = JSON.stringify(input);
     const ssmEndpoint = `https://ssm.${awsRegion}.amazonaws.com`;
     const ssmPluginArgs = [
         jsonResponse,
         awsRegion,
         commandType,
-        profile,
+        awsProfile,
         jsonInput,
         ssmEndpoint,
     ];
